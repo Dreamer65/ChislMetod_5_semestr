@@ -40,9 +40,9 @@ namespace Block_1
             double accuracy;
 
             x = (double)tbEPower.Invoke(f2, tbEPower);
-            accuracy = (double)tbAccuracy.Invoke(f2, tbAccuracy);
-            double s = Ex.CalcSumClasic(x, accuracy);
-            lbClassic.Invoke(f1, lbClassic, s.ToString());
+            accuracy = (double)tbExAccuracy.Invoke(f2, tbExAccuracy);
+            double s = Block1.EPowXClasic(x, accuracy);
+            lbExClassic.Invoke(f1, lbExClassic, s.ToString());
         }
 
         void Func2()
@@ -51,17 +51,17 @@ namespace Block_1
             double accuracy;
 
             x = (double)tbEPower.Invoke(f2, tbEPower);
-            accuracy = (double)tbAccuracy.Invoke(f2, tbAccuracy);
-            double s = Ex.CalcSumReq(x, accuracy);
-            lbReq.Invoke(f1, lbReq, s.ToString());
+            accuracy = (double)tbExAccuracy.Invoke(f2, tbExAccuracy);
+            double s = Block1.EPowXReq(x, accuracy);
+            lbExReq.Invoke(f1, lbExReq, s.ToString());
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             lbExControl.Text = Math.Exp(TBGetDouble(tbEPower)).ToString();
 
-            lbClassic.Text = "-";
-            lbReq.Text = "-";
+            lbExClassic.Text = "-";
+            lbExReq.Text = "-";
 
             Thread th1 = new Thread(Func1);
             Thread th2 = new Thread(Func2);
@@ -70,6 +70,12 @@ namespace Block_1
 
         }
 
-
+        private void pbSinCulc_Click(object sender, EventArgs e)
+        {
+            double x = TBGetDouble(tbSinX);
+            double accuracy = TBGetDouble(tbSinAccuracy);
+            ControlWriteText(lbSinControl, Math.Sin(x).ToString());
+            ControlWriteText(lbSinRes, Block1.Sin(x, accuracy).ToString());
+        }
     }
 }
