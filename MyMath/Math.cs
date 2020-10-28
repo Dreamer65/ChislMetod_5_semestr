@@ -18,7 +18,7 @@ namespace MyFunctions
             return result;
         }
 
-        public static double Power(double x, double pow)
+        public static double Pow(double x, double pow)
         {
             double result = 1;
             while (pow != 0)
@@ -59,6 +59,11 @@ namespace MyFunctions
             if (minus) result = 1 / result;
 
             return result;
+        }
+
+        static public double Abs(double x)
+        {
+            return (x < 0)? -x : x;
         }
     }
 }

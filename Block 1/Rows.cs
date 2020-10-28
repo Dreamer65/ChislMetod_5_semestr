@@ -29,7 +29,7 @@ namespace Block_1
             int i = 2;
             do
             {
-                element = Math.Power(x, i) / Math.Factor(i);
+                element = Math.Pow(x, i) / Math.Factor(i);
                 result += element;
                 i++;
             } while (element > accuracy);
@@ -74,14 +74,37 @@ namespace Block_1
             double element = x;
             double element1;
 
-            int i = 1;
+            int i = 0;
             do
             {
-                element1 = (-1) * element * x * x / ((2 * i + 2) * (2 * i + 3));
+                element1 = (-1) * element * Math.Pow(x, 2) / ((2 * i + 2) * (2 * i + 3));
                 result += element1;
                 element = element1;
                 i++;
-            } while (element > accuracy);
+            } while (Math.Abs(element) > accuracy);
+
+            return result;
+        }
+
+        static public double Ln(double x, double accuracy)
+        {
+            if (x == 0) return double.NegativeInfinity;
+            if (x < 0) return double.NaN;
+
+            x -= 1;
+            double element = x;
+            double element1;
+            double result = x;
+
+            int i = 1;
+
+            while(Math.Abs(element) > accuracy/10)
+            {
+                element1 = -1 *element * x * i / (i + 1);
+                result += element1;
+                element = element1;
+                i++;
+            }
 
             return result;
         }

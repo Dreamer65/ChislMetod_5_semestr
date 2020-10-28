@@ -48,6 +48,15 @@
             this.lbEquals2 = new System.Windows.Forms.Label();
             this.tbSinX = new System.Windows.Forms.TextBox();
             this.lbSin = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lbLnControl = new System.Windows.Forms.Label();
+            this.lbAccuracy3 = new System.Windows.Forms.Label();
+            this.tbLnAccuracy = new System.Windows.Forms.TextBox();
+            this.pbLnCalc = new System.Windows.Forms.Button();
+            this.lbLnRes = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbLnX = new System.Windows.Forms.TextBox();
+            this.lbLnXp1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbE
@@ -233,11 +242,103 @@
             this.lbSin.TabIndex = 11;
             this.lbSin.Text = "sin (    )";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(9, 177);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(406, 13);
+            this.label1.TabIndex = 22;
+            this.label1.Text = "---------------------------------------------------------------------------------" +
+    "----------------------------------------------------\r\n";
+            // 
+            // lbLnControl
+            // 
+            this.lbLnControl.AutoSize = true;
+            this.lbLnControl.Location = new System.Drawing.Point(123, 239);
+            this.lbLnControl.Name = "lbLnControl";
+            this.lbLnControl.Size = new System.Drawing.Size(35, 13);
+            this.lbLnControl.TabIndex = 30;
+            this.lbLnControl.Text = "label1";
+            // 
+            // lbAccuracy3
+            // 
+            this.lbAccuracy3.AutoSize = true;
+            this.lbAccuracy3.Location = new System.Drawing.Point(11, 235);
+            this.lbAccuracy3.Name = "lbAccuracy3";
+            this.lbAccuracy3.Size = new System.Drawing.Size(54, 13);
+            this.lbAccuracy3.TabIndex = 29;
+            this.lbAccuracy3.Text = "Точность";
+            // 
+            // tbLnAccuracy
+            // 
+            this.tbLnAccuracy.Location = new System.Drawing.Point(69, 232);
+            this.tbLnAccuracy.Name = "tbLnAccuracy";
+            this.tbLnAccuracy.Size = new System.Drawing.Size(43, 20);
+            this.tbLnAccuracy.TabIndex = 28;
+            this.tbLnAccuracy.Text = "0,01";
+            // 
+            // pbLnCalc
+            // 
+            this.pbLnCalc.Location = new System.Drawing.Point(335, 190);
+            this.pbLnCalc.Name = "pbLnCalc";
+            this.pbLnCalc.Size = new System.Drawing.Size(75, 23);
+            this.pbLnCalc.TabIndex = 27;
+            this.pbLnCalc.Text = "Calc";
+            this.pbLnCalc.UseVisualStyleBackColor = true;
+            this.pbLnCalc.Click += new System.EventHandler(this.pbLnCalc_Click);
+            // 
+            // lbLnRes
+            // 
+            this.lbLnRes.AutoSize = true;
+            this.lbLnRes.Location = new System.Drawing.Point(191, 210);
+            this.lbLnRes.Name = "lbLnRes";
+            this.lbLnRes.Size = new System.Drawing.Size(10, 13);
+            this.lbLnRes.TabIndex = 26;
+            this.lbLnRes.Text = "-";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(159, 198);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(30, 31);
+            this.label7.TabIndex = 25;
+            this.label7.Text = "=";
+            // 
+            // tbLnX
+            // 
+            this.tbLnX.Location = new System.Drawing.Point(114, 203);
+            this.tbLnX.Name = "tbLnX";
+            this.tbLnX.Size = new System.Drawing.Size(28, 20);
+            this.tbLnX.TabIndex = 24;
+            this.tbLnX.Text = "1";
+            // 
+            // lbLnXp1
+            // 
+            this.lbLnXp1.AutoSize = true;
+            this.lbLnXp1.Font = new System.Drawing.Font("Microsoft Sans Serif", 25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbLnXp1.Location = new System.Drawing.Point(14, 190);
+            this.lbLnXp1.Name = "lbLnXp1";
+            this.lbLnXp1.Size = new System.Drawing.Size(150, 39);
+            this.lbLnXp1.TabIndex = 23;
+            this.lbLnXp1.Text = "ln(1 +    )";
+            // 
             // FMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(422, 326);
+            this.Controls.Add(this.lbLnControl);
+            this.Controls.Add(this.lbAccuracy3);
+            this.Controls.Add(this.tbLnAccuracy);
+            this.Controls.Add(this.pbLnCalc);
+            this.Controls.Add(this.lbLnRes);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.tbLnX);
+            this.Controls.Add(this.lbLnXp1);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.lbSinControl);
             this.Controls.Add(this.lbSpacer1);
             this.Controls.Add(this.lbAccuracy2);
@@ -287,6 +388,15 @@
         private System.Windows.Forms.Label lbEquals2;
         private System.Windows.Forms.TextBox tbSinX;
         private System.Windows.Forms.Label lbSin;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbLnControl;
+        private System.Windows.Forms.Label lbAccuracy3;
+        private System.Windows.Forms.TextBox tbLnAccuracy;
+        private System.Windows.Forms.Button pbLnCalc;
+        private System.Windows.Forms.Label lbLnRes;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox tbLnX;
+        private System.Windows.Forms.Label lbLnXp1;
     }
 }
 

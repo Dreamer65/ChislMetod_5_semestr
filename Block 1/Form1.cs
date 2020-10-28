@@ -77,5 +77,13 @@ namespace Block_1
             ControlWriteText(lbSinControl, Math.Sin(x).ToString());
             ControlWriteText(lbSinRes, Block1.Sin(x, accuracy).ToString());
         }
+
+        private void pbLnCalc_Click(object sender, EventArgs e)
+        {
+            double x = TBGetDouble(tbLnX);
+            double accuracy = TBGetDouble(tbLnAccuracy);
+            ControlWriteText(lbLnControl, Math.Log(1 + x).ToString());
+            ControlWriteText(lbLnRes, Block1.Ln(1 + x, accuracy).ToString());
+        }
     }
 }
