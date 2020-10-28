@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Block 2", "Block 2\Block 2.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFunctions", "MyMath\MyFunctions.csproj", "{A242E8F0-8009-4EE7-98B8-6C85244FBFA8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Block 3", "Block 3\Block 3.csproj", "{57C2354B-9A04-4C81-ACC5-C8FD9C3A7AAB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{A242E8F0-8009-4EE7-98B8-6C85244FBFA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A242E8F0-8009-4EE7-98B8-6C85244FBFA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A242E8F0-8009-4EE7-98B8-6C85244FBFA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{57C2354B-9A04-4C81-ACC5-C8FD9C3A7AAB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{57C2354B-9A04-4C81-ACC5-C8FD9C3A7AAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{57C2354B-9A04-4C81-ACC5-C8FD9C3A7AAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{57C2354B-9A04-4C81-ACC5-C8FD9C3A7AAB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

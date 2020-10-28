@@ -86,27 +86,30 @@ namespace Block_1
             return result;
         }
 
-        static public double Ln(double x, double accuracy)
+        static public double Ln(double arg, double accuracy)
         {
-            if (x == 0) return double.NegativeInfinity;
-            if (x < 0) return double.NaN;
+            if (arg == 0) return double.NegativeInfinity;
+            if (arg < 0) return double.NaN;
 
-            x -= 1;
+            double x = (arg - 1) / (arg + 1);
             double element = x;
             double element1;
             double result = x;
 
             int i = 1;
+            accuracy /= 10;
 
-            while(Math.Abs(element) > accuracy/10)
+            while (Math.Abs(element) > accuracy)
             {
-                element1 = -1 *element * x * i / (i + 1);
+                element1 = element * Math.Pow(x, 2) * i / (i + 2);
                 result += element1;
                 element = element1;
-                i++;
+                i += 2;
+                if (double.IsNaN(result))
+                    break;
             }
 
-            return result;
+            return result * 2;
         }
     }
 }
