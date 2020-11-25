@@ -32,7 +32,7 @@ namespace Block_1
                 element = Math.Pow(x, i) / Math.Factor(i);
                 result += element;
                 i++;
-            } while (element > accuracy);
+            } while (Math.Abs(element) > accuracy);
 
             if (minus) result = 1 / result;
 
@@ -61,7 +61,7 @@ namespace Block_1
                 result += element1;
                 element = element1;
                 i++;
-            } while (element > accuracy);
+            } while (Math.Abs(element) > accuracy);
 
             if (minus) result = 1 / result;
 
