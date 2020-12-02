@@ -48,6 +48,10 @@
             this.lbDihotomyRoot = new System.Windows.Forms.Label();
             this.pbHords = new System.Windows.Forms.Button();
             this.lbHordsRoot = new System.Windows.Forms.Label();
+            this.pbTangent = new System.Windows.Forms.Button();
+            this.lbTangentRoot = new System.Windows.Forms.Label();
+            this.pbIter = new System.Windows.Forms.Button();
+            this.lbIterRoot = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.chPolindrome)).BeginInit();
             this.SuspendLayout();
             // 
@@ -185,7 +189,7 @@
             // 
             this.pbDihotomy.Location = new System.Drawing.Point(447, 186);
             this.pbDihotomy.Name = "pbDihotomy";
-            this.pbDihotomy.Size = new System.Drawing.Size(75, 23);
+            this.pbDihotomy.Size = new System.Drawing.Size(91, 23);
             this.pbDihotomy.TabIndex = 13;
             this.pbDihotomy.Text = "Дихотомия";
             this.pbDihotomy.UseVisualStyleBackColor = true;
@@ -204,7 +208,7 @@
             // 
             this.pbHords.Location = new System.Drawing.Point(447, 224);
             this.pbHords.Name = "pbHords";
-            this.pbHords.Size = new System.Drawing.Size(75, 23);
+            this.pbHords.Size = new System.Drawing.Size(91, 23);
             this.pbHords.TabIndex = 15;
             this.pbHords.Text = "Хорды";
             this.pbHords.UseVisualStyleBackColor = true;
@@ -219,11 +223,53 @@
             this.lbHordsRoot.TabIndex = 14;
             this.lbHordsRoot.Text = "Hord Root";
             // 
+            // pbTangent
+            // 
+            this.pbTangent.Location = new System.Drawing.Point(447, 265);
+            this.pbTangent.Name = "pbTangent";
+            this.pbTangent.Size = new System.Drawing.Size(91, 23);
+            this.pbTangent.TabIndex = 17;
+            this.pbTangent.Text = "Касательные";
+            this.pbTangent.UseVisualStyleBackColor = true;
+            this.pbTangent.Click += new System.EventHandler(this.pbTangent_Click);
+            // 
+            // lbTangentRoot
+            // 
+            this.lbTangentRoot.AutoSize = true;
+            this.lbTangentRoot.Location = new System.Drawing.Point(544, 270);
+            this.lbTangentRoot.Name = "lbTangentRoot";
+            this.lbTangentRoot.Size = new System.Drawing.Size(73, 13);
+            this.lbTangentRoot.TabIndex = 16;
+            this.lbTangentRoot.Text = "Tangent Root";
+            // 
+            // pbIter
+            // 
+            this.pbIter.Location = new System.Drawing.Point(447, 303);
+            this.pbIter.Name = "pbIter";
+            this.pbIter.Size = new System.Drawing.Size(91, 23);
+            this.pbIter.TabIndex = 19;
+            this.pbIter.Text = "Итерации";
+            this.pbIter.UseVisualStyleBackColor = true;
+            this.pbIter.Click += new System.EventHandler(this.pbIter_Click);
+            // 
+            // lbIterRoot
+            // 
+            this.lbIterRoot.AutoSize = true;
+            this.lbIterRoot.Location = new System.Drawing.Point(544, 308);
+            this.lbIterRoot.Name = "lbIterRoot";
+            this.lbIterRoot.Size = new System.Drawing.Size(48, 13);
+            this.lbIterRoot.TabIndex = 18;
+            this.lbIterRoot.Text = "Iter Root";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.pbIter);
+            this.Controls.Add(this.lbIterRoot);
+            this.Controls.Add(this.pbTangent);
+            this.Controls.Add(this.lbTangentRoot);
             this.Controls.Add(this.pbHords);
             this.Controls.Add(this.lbHordsRoot);
             this.Controls.Add(this.pbDihotomy);
@@ -269,6 +315,10 @@
         private System.Windows.Forms.Label lbDihotomyRoot;
         private System.Windows.Forms.Button pbHords;
         private System.Windows.Forms.Label lbHordsRoot;
+        private System.Windows.Forms.Button pbTangent;
+        private System.Windows.Forms.Label lbTangentRoot;
+        private System.Windows.Forms.Button pbIter;
+        private System.Windows.Forms.Label lbIterRoot;
     }
 }
 

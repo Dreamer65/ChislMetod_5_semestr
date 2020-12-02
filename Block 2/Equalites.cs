@@ -25,10 +25,10 @@ namespace ChislMethod_5_Semestr
             return root;
         }
 
-        public static double Hords(Func polynom, Func diff2, Interval interval, double accuracy)
+        public static double Hords(Func polynom, Func d2x, Interval interval, double accuracy)
         {
             double border, root;
-            if (diff2(interval.A) * polynom(interval.A) > 0)
+            if (d2x(interval.A) * polynom(interval.A) > 0)
             {
                 do
                 {
@@ -47,6 +47,57 @@ namespace ChislMethod_5_Semestr
                 } while (Math.Abs(interval.A - border) >= accuracy);
             }
             return root;
+        }
+
+        public static double Tangent(Func polynom, Func dx, Func d2x, Interval interval, double accuracy)
+        {
+            double point, root;
+            if (polynom(interval.A) * d2x(interval.A) > 0)
+            {
+                do
+                {
+                    point = interval.A;
+                    interval.A = point - polynom(point) / dx(point);
+                    root = interval.A;
+                }
+                while (Math.Abs(interval.A - point) >= accuracy);
+            }
+            else
+            {
+                do
+                {
+                    point = interval.B;
+                    interval.B = point - polynom(point) / dx(point);
+                    root = interval.B;
+                }
+                while (Math.Abs(interval.B - point) >= accuracy);
+            }
+            return root;
+        }
+
+        public static double Iteration(Func polynom, Func dx, Interval interval, double accuracy)
+        {
+            double xk = 0, x = 0;
+            double dxMin, dxMax;
+            double lyambda;
+            dxMin = dxMax = dx(interval.A);
+            for (double i = interval.A; i < interval.B; i += accuracy)
+            {
+                if (dxMin > dx(i)) dxMin = dx(i);
+
+                if (dxMax < dx(i)) dxMax = dx(i);
+            }
+            if (dxMax <= 3 * dxMin)
+                lyambda = 0.75 / dxMax;
+            else
+                lyambda = 1 / dxMax;
+            do
+            {
+                x = xk;
+                xk = x - lyambda * polynom(x);
+            }
+            while (Math.Abs(x - xk) >= accuracy);
+            return xk;
         }
 
     }

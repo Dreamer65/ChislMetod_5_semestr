@@ -129,7 +129,21 @@ namespace ChislMethod_5_Semestr
         {
             if (!Verification(Polindrome, rootInterval, lbHordsRoot)) return;
 
-            lbHordsRoot.Text = Eq.Hords(Polindrome, Pol_Dx,  rootInterval, rootAccuracy).ToString();
+            lbHordsRoot.Text = Eq.Hords(Polindrome, Pol_D2x,  rootInterval, rootAccuracy).ToString();
+        }
+
+        private void pbTangent_Click(object sender, EventArgs e)
+        {
+            if (!Verification(Polindrome, rootInterval, lbTangentRoot)) return;
+
+            lbTangentRoot.Text = Eq.Tangent(Polindrome, Pol_Dx, Pol_D2x, rootInterval, rootAccuracy).ToString();
+        }
+
+        private void pbIter_Click(object sender, EventArgs e)
+        {
+            if (!Verification(Polindrome, rootInterval, lbIterRoot)) return;
+
+            lbIterRoot.Text = Eq.Iteration(Polindrome, Pol_Dx, rootInterval, rootAccuracy).ToString();
         }
     }
 
