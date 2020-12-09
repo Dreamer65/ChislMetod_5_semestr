@@ -77,7 +77,8 @@ namespace ChislMethod_5_Semestr
 
         public static double Iteration(Func polynom, Func dx, Interval interval, double accuracy)
         {
-            double xk = 0, x = 0;
+            double xk = interval.A; 
+            double x;
             double dxMin, dxMax;
             double lyambda;
             dxMin = dxMax = dx(interval.A);
@@ -88,7 +89,7 @@ namespace ChislMethod_5_Semestr
                 if (dxMax < dx(i)) dxMax = dx(i);
             }
             if (dxMax <= 3 * dxMin)
-                lyambda = 0.75 / dxMax;
+                lyambda = 1.25 / dxMax;
             else
                 lyambda = 1 / dxMax;
             do
