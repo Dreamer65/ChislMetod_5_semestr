@@ -70,6 +70,7 @@ namespace Block_1
 
         static public double Sin(double x, double accuracy)
         {
+            while (x >= 2 * Math.PI) x -= 2 * Math.PI;
             double result = x;
             double element = x;
             double element1;
@@ -90,8 +91,18 @@ namespace Block_1
         {
             if (arg == 0) return double.NegativeInfinity;
             if (arg < 0) return double.NaN;
+            if (arg > 2)
+            {
+                int count = 0;
+                while(arg > 2)
+                {
+                    arg /= 2;
+                    count++;
+                }
+                return count * Ln(2, accuracy) + Ln(arg, accuracy);
+            }
 
-            double x = (arg - 1) / (arg + 1);
+            double x = arg - 1;
             double element = x;
             double element1;
             double result = x;
@@ -101,15 +112,15 @@ namespace Block_1
 
             while (Math.Abs(element) > accuracy)
             {
-                element1 = element * Math.Pow(x, 2) * i / (i + 2);
+                element1 = - element * (x * i / (i + 1));
                 result += element1;
                 element = element1;
-                i += 2;
+                i++;
                 if (double.IsNaN(result))
                     break;
             }
 
-            return result * 2;
+            return result;
         }
     }
 }

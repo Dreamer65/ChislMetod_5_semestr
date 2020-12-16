@@ -8,6 +8,8 @@ namespace MyFunctions
 {
     public static class Math
     {
+
+        public const double PI = System.Math.PI;
         public static long Factor(int number)
         {
             if (number <= 1)
