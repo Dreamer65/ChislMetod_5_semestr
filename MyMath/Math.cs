@@ -1,4 +1,6 @@
-﻿namespace MyFunctions
+﻿using System.Collections.Generic;
+
+namespace MyFunctions
 {
     public static class Math
     {
@@ -78,42 +80,39 @@
         {
             public Interval(double A, double B)
             {
-                if (A <= B)
-                {
-                    this.A = A;
-                    this.B = B;
-                }
-                else
-                {
-                    this.A = B;
-                    this.B = A;
-                }
-                this.Points = 0;
+                this.A = A;
+                this.B = B;
+                this.PointsCount = 0;
             }
 
-            public Interval(double A, double B, int points)
+            public Interval(double A, double B, int pointsCount)
             {
-                if (A <= B)
-                {
-                    this.A = A;
-                    this.B = B;
-                }
-                else
-                {
-                    this.A = B;
-                    this.B = A;
-                }
-                this.Points = points;
+                this.A = A;
+                this.B = B;
+                this.PointsCount = pointsCount;
             }
             public double A { set; get; }
 
             public double B { set; get; }
 
-            public int Points { set; get; }
+            public int PointsCount { set; get; }
+
+            public List<double> Points
+            {
+                get
+                {
+                    if (!this.isValid) return null;
+                    List<double> result = new List<double>();
+                    for (double i = this.A; i < this.B && this.B - i > Step/2; i += Step)
+                        result.Add(i);
+                    result.Add(this.B);
+                    return result;
+                }
+            }
 
             public double Step
             {
-                get { return (B - A) / Points; }
+                get { return Math.Abs(B - A) / (PointsCount - 1); }
             }
             public bool isValid
             {

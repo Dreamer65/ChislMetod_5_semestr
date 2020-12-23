@@ -32,15 +32,16 @@
             this.lbInterval1 = new System.Windows.Forms.Label();
             this.lbY0 = new System.Windows.Forms.Label();
             this.lbDivide1 = new System.Windows.Forms.Label();
-            this.StepField = new System.Windows.Forms.TextBox();
-            this.bField = new System.Windows.Forms.TextBox();
-            this.yZeroField = new System.Windows.Forms.TextBox();
-            this.aField = new System.Windows.Forms.TextBox();
+            this.tbPoints = new System.Windows.Forms.TextBox();
+            this.tbIntervalB = new System.Windows.Forms.TextBox();
+            this.tbY0 = new System.Windows.Forms.TextBox();
+            this.tbIntervalA = new System.Windows.Forms.TextBox();
             this.pbRungeKutt = new System.Windows.Forms.Button();
             this.dgvResult = new System.Windows.Forms.DataGridView();
             this.pbEilerPlus = new System.Windows.Forms.Button();
             this.pbEiler = new System.Windows.Forms.Button();
             this.lbInterval2 = new System.Windows.Forms.Label();
+            this.lbInterval3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,9 +51,9 @@
             this.lbDivide2.Location = new System.Drawing.Point(112, 70);
             this.lbDivide2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbDivide2.Name = "lbDivide2";
-            this.lbDivide2.Size = new System.Drawing.Size(41, 13);
+            this.lbDivide2.Size = new System.Drawing.Size(35, 13);
             this.lbDivide2.TabIndex = 11;
-            this.lbDivide2.Text = "частей";
+            this.lbDivide2.Text = "точек";
             // 
             // lbInterval1
             // 
@@ -61,9 +62,9 @@
             this.lbInterval1.Location = new System.Drawing.Point(11, 9);
             this.lbInterval1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbInterval1.Name = "lbInterval1";
-            this.lbInterval1.Size = new System.Drawing.Size(73, 13);
+            this.lbInterval1.Size = new System.Drawing.Size(59, 13);
             this.lbInterval1.TabIndex = 8;
-            this.lbInterval1.Text = "Интервал: от";
+            this.lbInterval1.Text = "Интервал:";
             // 
             // lbY0
             // 
@@ -85,37 +86,37 @@
             this.lbDivide1.TabIndex = 10;
             this.lbDivide1.Text = "Разбиение:";
             // 
-            // StepField
+            // tbPoints
             // 
-            this.StepField.Location = new System.Drawing.Point(80, 67);
-            this.StepField.Margin = new System.Windows.Forms.Padding(2);
-            this.StepField.Name = "StepField";
-            this.StepField.Size = new System.Drawing.Size(28, 20);
-            this.StepField.TabIndex = 7;
+            this.tbPoints.Location = new System.Drawing.Point(80, 67);
+            this.tbPoints.Margin = new System.Windows.Forms.Padding(2);
+            this.tbPoints.Name = "tbPoints";
+            this.tbPoints.Size = new System.Drawing.Size(28, 20);
+            this.tbPoints.TabIndex = 7;
             // 
-            // bField
+            // tbIntervalB
             // 
-            this.bField.Location = new System.Drawing.Point(144, 6);
-            this.bField.Margin = new System.Windows.Forms.Padding(2);
-            this.bField.Name = "bField";
-            this.bField.Size = new System.Drawing.Size(28, 20);
-            this.bField.TabIndex = 1;
+            this.tbIntervalB.Location = new System.Drawing.Point(151, 6);
+            this.tbIntervalB.Margin = new System.Windows.Forms.Padding(2);
+            this.tbIntervalB.Name = "tbIntervalB";
+            this.tbIntervalB.Size = new System.Drawing.Size(28, 20);
+            this.tbIntervalB.TabIndex = 1;
             // 
-            // yZeroField
+            // tbY0
             // 
-            this.yZeroField.Location = new System.Drawing.Point(35, 35);
-            this.yZeroField.Margin = new System.Windows.Forms.Padding(2);
-            this.yZeroField.Name = "yZeroField";
-            this.yZeroField.Size = new System.Drawing.Size(28, 20);
-            this.yZeroField.TabIndex = 12;
+            this.tbY0.Location = new System.Drawing.Point(35, 35);
+            this.tbY0.Margin = new System.Windows.Forms.Padding(2);
+            this.tbY0.Name = "tbY0";
+            this.tbY0.Size = new System.Drawing.Size(28, 20);
+            this.tbY0.TabIndex = 12;
             // 
-            // aField
+            // tbIntervalA
             // 
-            this.aField.Location = new System.Drawing.Point(88, 6);
-            this.aField.Margin = new System.Windows.Forms.Padding(2);
-            this.aField.Name = "aField";
-            this.aField.Size = new System.Drawing.Size(28, 20);
-            this.aField.TabIndex = 5;
+            this.tbIntervalA.Location = new System.Drawing.Point(93, 6);
+            this.tbIntervalA.Margin = new System.Windows.Forms.Padding(2);
+            this.tbIntervalA.Name = "tbIntervalA";
+            this.tbIntervalA.Size = new System.Drawing.Size(28, 20);
+            this.tbIntervalA.TabIndex = 5;
             // 
             // pbRungeKutt
             // 
@@ -126,6 +127,7 @@
             this.pbRungeKutt.TabIndex = 17;
             this.pbRungeKutt.Text = "Рунге–Кутт";
             this.pbRungeKutt.UseVisualStyleBackColor = true;
+            this.pbRungeKutt.Click += new System.EventHandler(this.pbRungeKutt_Click);
             // 
             // dgvResult
             // 
@@ -133,7 +135,7 @@
             this.dgvResult.AllowUserToDeleteRows = false;
             this.dgvResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvResult.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dgvResult.Location = new System.Drawing.Point(187, 11);
+            this.dgvResult.Location = new System.Drawing.Point(183, 11);
             this.dgvResult.Margin = new System.Windows.Forms.Padding(2);
             this.dgvResult.Name = "dgvResult";
             this.dgvResult.ReadOnly = true;
@@ -141,7 +143,7 @@
             this.dgvResult.RowHeadersWidth = 10;
             this.dgvResult.RowTemplate.Height = 24;
             this.dgvResult.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvResult.Size = new System.Drawing.Size(137, 293);
+            this.dgvResult.Size = new System.Drawing.Size(188, 293);
             this.dgvResult.TabIndex = 18;
             this.dgvResult.TabStop = false;
             // 
@@ -154,6 +156,7 @@
             this.pbEilerPlus.TabIndex = 16;
             this.pbEilerPlus.Text = "Эйлер +";
             this.pbEilerPlus.UseVisualStyleBackColor = true;
+            this.pbEilerPlus.Click += new System.EventHandler(this.pbEilerPlus_Click);
             // 
             // pbEiler
             // 
@@ -164,24 +167,37 @@
             this.pbEiler.TabIndex = 15;
             this.pbEiler.Text = "Эйлер";
             this.pbEiler.UseVisualStyleBackColor = true;
+            this.pbEiler.Click += new System.EventHandler(this.pbEiler_Click);
             // 
             // lbInterval2
             // 
             this.lbInterval2.AutoSize = true;
-            this.lbInterval2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.lbInterval2.Location = new System.Drawing.Point(121, 9);
+            this.lbInterval2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInterval2.Location = new System.Drawing.Point(74, 9);
             this.lbInterval2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lbInterval2.Name = "lbInterval2";
-            this.lbInterval2.Size = new System.Drawing.Size(19, 13);
+            this.lbInterval2.Size = new System.Drawing.Size(15, 13);
             this.lbInterval2.TabIndex = 8;
-            this.lbInterval2.Text = "до";
+            this.lbInterval2.Text = "A";
+            // 
+            // lbInterval3
+            // 
+            this.lbInterval3.AutoSize = true;
+            this.lbInterval3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.lbInterval3.Location = new System.Drawing.Point(132, 9);
+            this.lbInterval3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbInterval3.Name = "lbInterval3";
+            this.lbInterval3.Size = new System.Drawing.Size(15, 13);
+            this.lbInterval3.TabIndex = 8;
+            this.lbInterval3.Text = "B";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(335, 315);
+            this.ClientSize = new System.Drawing.Size(382, 315);
             this.Controls.Add(this.lbDivide2);
+            this.Controls.Add(this.lbInterval3);
             this.Controls.Add(this.lbInterval2);
             this.Controls.Add(this.lbInterval1);
             this.Controls.Add(this.pbRungeKutt);
@@ -189,11 +205,11 @@
             this.Controls.Add(this.dgvResult);
             this.Controls.Add(this.lbDivide1);
             this.Controls.Add(this.pbEilerPlus);
-            this.Controls.Add(this.StepField);
-            this.Controls.Add(this.bField);
+            this.Controls.Add(this.tbPoints);
+            this.Controls.Add(this.tbIntervalB);
             this.Controls.Add(this.pbEiler);
-            this.Controls.Add(this.yZeroField);
-            this.Controls.Add(this.aField);
+            this.Controls.Add(this.tbY0);
+            this.Controls.Add(this.tbIntervalA);
             this.Name = "Form1";
             this.Text = "Form1";
             ((System.ComponentModel.ISupportInitialize)(this.dgvResult)).EndInit();
@@ -207,15 +223,16 @@
         private System.Windows.Forms.Label lbInterval1;
         private System.Windows.Forms.Label lbY0;
         private System.Windows.Forms.Label lbDivide1;
-        private System.Windows.Forms.TextBox StepField;
-        private System.Windows.Forms.TextBox bField;
-        private System.Windows.Forms.TextBox yZeroField;
-        private System.Windows.Forms.TextBox aField;
+        private System.Windows.Forms.TextBox tbPoints;
+        private System.Windows.Forms.TextBox tbIntervalB;
+        private System.Windows.Forms.TextBox tbY0;
+        private System.Windows.Forms.TextBox tbIntervalA;
         private System.Windows.Forms.Button pbRungeKutt;
         private System.Windows.Forms.DataGridView dgvResult;
         private System.Windows.Forms.Button pbEilerPlus;
         private System.Windows.Forms.Button pbEiler;
         private System.Windows.Forms.Label lbInterval2;
+        private System.Windows.Forms.Label lbInterval3;
     }
 }
 
