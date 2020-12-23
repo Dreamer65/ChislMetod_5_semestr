@@ -70,7 +70,11 @@ namespace Block_1
 
         static public double Sin(double x, double accuracy)
         {
+            bool sign = (x >= 0) ? true : false;
+            x = Math.Abs(x);
             while (x >= 2 * Math.PI) x -= 2 * Math.PI;
+            x = sign ? x : -x;
+
             double result = x;
             double element = x;
             double element1;

@@ -67,5 +67,19 @@ namespace MyFunctions
         {
             return (x < 0)? -x : x;
         }
+
+        static public double Max(params double[] values)
+        {
+            double tmp = values[0];
+            foreach (double item in values)
+            {
+                if (item > tmp)
+                    tmp = item;
+
+            }
+            return tmp;
+        }
+
+        
     }
 }

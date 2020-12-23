@@ -80,5 +80,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyMath\MyFunctions.csproj">
+      <Project>{a242e8f0-8009-4ee7-98b8-6c85244fbfa8}</Project>
+      <Name>MyFunctions</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
