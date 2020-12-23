@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace MyFunctions
+﻿namespace MyFunctions
 {
     public static class Math
     {
@@ -65,7 +59,7 @@ namespace MyFunctions
 
         static public double Abs(double x)
         {
-            return (x < 0)? -x : x;
+            return (x < 0) ? -x : x;
         }
 
         static public double Max(params double[] values)
@@ -80,6 +74,55 @@ namespace MyFunctions
             return tmp;
         }
 
-        
+        public struct Interval
+        {
+            public Interval(double A, double B)
+            {
+                if (A <= B)
+                {
+                    this.A = A;
+                    this.B = B;
+                }
+                else
+                {
+                    this.A = B;
+                    this.B = A;
+                }
+                this.Points = 0;
+            }
+
+            public Interval(double A, double B, int points)
+            {
+                if (A <= B)
+                {
+                    this.A = A;
+                    this.B = B;
+                }
+                else
+                {
+                    this.A = B;
+                    this.B = A;
+                }
+                this.Points = points;
+            }
+            public double A { set; get; }
+
+            public double B { set; get; }
+
+            public int Points { set; get; }
+
+            public double Step
+            {
+                get { return (B - A) / Points; }
+            }
+            public bool isValid
+            {
+                get { return A < B; }
+            }
+
+
+        }
+
+
     }
 }

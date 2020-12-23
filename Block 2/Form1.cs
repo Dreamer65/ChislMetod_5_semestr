@@ -8,8 +8,8 @@ namespace ChislMethod_5_Semestr
     public partial class Form1 : Form
     {
 
-        Interval chartInterval;
-        Interval rootInterval;
+        Math.Interval chartInterval;
+        Math.Interval rootInterval;
         double rootAccuracy;
         public static double Polindrome(double x)
         {
@@ -28,8 +28,8 @@ namespace ChislMethod_5_Semestr
         public Form1()
         {
             InitializeComponent();
-            chartInterval = new Interval(-2, 2);
-            rootInterval = new Interval(-2, 2);
+            chartInterval = new Math.Interval(-2, 2);
+            rootInterval = new Math.Interval(-2, 2);
             tbA.Text = (-2).ToString();
             tbB.Text = (2).ToString();
             tbRootA.Text = (-2).ToString();
@@ -38,7 +38,7 @@ namespace ChislMethod_5_Semestr
             tbRootAccuracy.Text = rootAccuracy.ToString();
         }
 
-        private void DrawChart(Interval interval, double step)
+        private void DrawChart(Math.Interval interval, double step)
         {
             if (!interval.isValid) return;
             chPolindrome.Series[0].Points.Clear();
@@ -77,7 +77,7 @@ namespace ChislMethod_5_Semestr
             rootInterval.A = a;
         }
 
-        public bool Verification(Func polynom, Interval interval, Label tbResult)
+        public bool Verification(Func polynom, Math.Interval interval, Label tbResult)
         {
             if (polynom(interval.A) == 0)
             {
@@ -147,24 +147,6 @@ namespace ChislMethod_5_Semestr
         }
     }
 
-    public struct Interval
-    {
-        public Interval(double A, double B)
-        {
-            this.A = A;
-            this.B = B;
-        }
-        public double A { set; get; }
-
-        public double B { set; get; }
-
-        public bool isValid
-        {
-            get { return A < B; }
-
-        }
-
-    }
 
     public delegate double Func(double x);
 }

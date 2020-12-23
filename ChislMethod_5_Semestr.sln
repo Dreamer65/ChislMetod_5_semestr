@@ -11,6 +11,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyFunctions", "MyMath\MyFun
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Block 3", "Block 3\Block 3.csproj", "{57C2354B-9A04-4C81-ACC5-C8FD9C3A7AAB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Block 4", "Block 4\Block 4.csproj", "{FA143457-CC51-4AC7-BD04-0BA23A61BD91}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Block 5", "Block 5\Block 5.csproj", "{6D066665-B72D-4D39-9003-DA2854105026}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +37,14 @@ Global
 		{57C2354B-9A04-4C81-ACC5-C8FD9C3A7AAB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{57C2354B-9A04-4C81-ACC5-C8FD9C3A7AAB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{57C2354B-9A04-4C81-ACC5-C8FD9C3A7AAB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FA143457-CC51-4AC7-BD04-0BA23A61BD91}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FA143457-CC51-4AC7-BD04-0BA23A61BD91}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FA143457-CC51-4AC7-BD04-0BA23A61BD91}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FA143457-CC51-4AC7-BD04-0BA23A61BD91}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D066665-B72D-4D39-9003-DA2854105026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D066665-B72D-4D39-9003-DA2854105026}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D066665-B72D-4D39-9003-DA2854105026}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D066665-B72D-4D39-9003-DA2854105026}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

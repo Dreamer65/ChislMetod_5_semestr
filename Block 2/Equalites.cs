@@ -4,7 +4,7 @@ namespace ChislMethod_5_Semestr
 {
     static class Equalites
     {
-        public static double Dichotomy(Func polynom, Interval interval, double accuracy)
+        public static double Dichotomy(Func polynom, Math.Interval interval, double accuracy)
         {
             double root, funcVal;
             do
@@ -25,7 +25,7 @@ namespace ChislMethod_5_Semestr
             return root;
         }
 
-        public static double Hords(Func polynom, Func d2x, Interval interval, double accuracy)
+        public static double Hords(Func polynom, Func d2x, Math.Interval interval, double accuracy)
         {
             double border, root;
             if (d2x(interval.A) * polynom(interval.A) > 0)
@@ -49,7 +49,7 @@ namespace ChislMethod_5_Semestr
             return root;
         }
 
-        public static double Tangent(Func polynom, Func dx, Func d2x, Interval interval, double accuracy)
+        public static double Tangent(Func polynom, Func dx, Func d2x, Math.Interval interval, double accuracy)
         {
             double point, root;
             if (polynom(interval.A) * d2x(interval.A) > 0)
@@ -75,7 +75,7 @@ namespace ChislMethod_5_Semestr
             return root;
         }
 
-        public static double Iteration(Func polynom, Func dx, Interval interval, double accuracy)
+        public static double Iteration(Func polynom, Func dx, Math.Interval interval, double accuracy)
         {
             double xk = interval.A; 
             double x;
