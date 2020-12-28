@@ -177,16 +177,6 @@ namespace Block_3
             {
                 dgvX.Rows[i].Cells[0].Value = result[i];
             }
-
-            /*for (int i = 0; i<main.GetLength(0); i++)
-            {
-                for (int j = 0; j < main.GetLength(1); j++)
-                    main[i, j] = main[i, j];
-            }
-
-            for (int i = 0; i < left.GetLength(0); i++)
-                left[i] = left[i];
-*/
         }
 
         private void pbZeidel_Click(object sender, EventArgs e)
