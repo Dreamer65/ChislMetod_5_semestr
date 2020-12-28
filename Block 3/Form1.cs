@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.VisualBasic;
+using System;
 using System.Windows.Forms;
 
 namespace Block_3
@@ -160,9 +161,15 @@ namespace Block_3
                 dgvLeft.Rows[i].Cells[0].Value = array[i];
             }
 
-            if(sole.Status != SoLEStatus.Ok || DialogResult == null)
+            if(sole.Status != SoLEStatus.Ok)
             {
-                MessageBox.Show("Нет решений");
+                if(sole.Status == SoLEStatus.NoAnswer)
+                    MessageBox.Show("Нет решений.");
+                else if(sole.Status == SoLEStatus.ZeroDeterminant)
+                    MessageBox.Show("Определитель равен нулю.");
+                else if(sole.Status == SoLEStatus.ZeroesOnMain)
+                    MessageBox.Show("Нули на главной диагонали");
+
                 return;
             }
 
@@ -180,6 +187,61 @@ namespace Block_3
             for (int i = 0; i < left.GetLength(0); i++)
                 left[i] = left[i];
 */
+        }
+
+        private void pbZeidel_Click(object sender, EventArgs e)
+        {
+            double[,] main = (double[,])ReadDataGrid(dgvMain);
+            double[] left = (double[])ReadDataGrid(dgvLeft);
+            if (main == null)
+            {
+                MessageBox.Show("Ошибка ввода в главной матрице.");
+                return;
+            }
+            if (left == null)
+            {
+                MessageBox.Show("Ошибка ввода в столбце значений.");
+                return;
+            }
+
+            double accuracy;
+            while(!double.TryParse(Interaction.InputBox("Введите приближение", "", "0,0001", 100, 100), out accuracy))
+                MessageBox.Show("Ошибка ввода. Точность должна быть числом.");
+
+            SoLE sole = new SoLE(main, left);
+            double[] result = sole.Zeidel(accuracy);
+
+            double[,] arrMain = sole.Main;
+            for (int i = 0; i < dgvMain.Rows.Count; i++)
+            {
+                for (int j = 0; j < dgvMain.Columns.Count; j++)
+                {
+                    dgvMain.Rows[i].Cells[j].Value = arrMain[i, j];
+                }
+            }
+
+            double[] array = sole.Left;
+            for (int i = 0; i < dgvLeft.Rows.Count; i++)
+            {
+                dgvLeft.Rows[i].Cells[0].Value = array[i];
+            }
+
+            if (sole.Status != SoLEStatus.Ok)
+            {
+                if (sole.Status == SoLEStatus.NoAnswer)
+                    MessageBox.Show("Нет решений.");
+                else if (sole.Status == SoLEStatus.Divergence)
+                    MessageBox.Show("Система расходится.");
+                else if (sole.Status == SoLEStatus.ZeroesOnMain)
+                    MessageBox.Show("Нули на главной диагонали");
+
+                return;
+            }
+
+            for (int i = 0; i < dgvLeft.Rows.Count; i++)
+            {
+                dgvX.Rows[i].Cells[0].Value = result[i];
+            }
         }
     }
 }

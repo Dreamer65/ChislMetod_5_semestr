@@ -76,6 +76,8 @@ namespace MyFunctions
             return tmp;
         }
 
+        static public double Sqrt(double d) => System.Math.Sqrt(d);
+
         public struct Interval
         {
             public Interval(double A, double B)

@@ -190,6 +190,7 @@
             this.pbZeidel.TabIndex = 3;
             this.pbZeidel.Text = "Зейдель";
             this.pbZeidel.UseVisualStyleBackColor = true;
+            this.pbZeidel.Click += new System.EventHandler(this.pbZeidel_Click);
             // 
             // Form1
             // 

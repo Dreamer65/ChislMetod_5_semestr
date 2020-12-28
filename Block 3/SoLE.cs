@@ -7,7 +7,10 @@ namespace Block_3
     {
         Ok,
         WrongSize,
-        NoAnswer
+        NoAnswer,
+        Divergence,
+        ZeroDeterminant,
+        ZeroesOnMain
     }
 
     class SoLE
@@ -55,12 +58,14 @@ namespace Block_3
 
         public double[] SolveGause()
         {
+            Status = SoLEStatus.Ok;
+
             double[,] main = Main;
             double[] left = Left;
             double det = Determinant(main);
             if(det == 0)
             {
-                Status = SoLEStatus.NoAnswer;
+                Status = SoLEStatus.ZeroDeterminant;
                 return null;
             }
             
@@ -142,7 +147,7 @@ namespace Block_3
                     }
                     else
                     {
-                        Status = SoLEStatus.NoAnswer;
+                        Status = SoLEStatus.ZeroesOnMain;
                     }
                 }
             }
@@ -151,36 +156,80 @@ namespace Block_3
             Left = left;
         }
 
-        /*public double[] Zeidel(double accuracy)
+        public double[] Zeidel(double accuracy)
         {
+            Status = SoLEStatus.Ok;
+
             double[] LastIter = new double[Size];
             double[] matrixX = new double[Size];
 
-            double Matix
+            double[,] main = Main;
+            double[] left = Left;
+
+            Swaping();
+
+            if (Status != SoLEStatus.Ok)
+                return null;
 
             if (Convergence())
             {
                 do
                 {
-                    for (int i = 0; i<Size; i++) LastIter[i] = matrixX[i];
-                    for (int i = 0; i<Size; i++)
+                    for (int i = 0; i < Size; i++) LastIter[i] = matrixX[i];
+                    for (int i = 0; i < Size; i++)
                     {
                         double temp = 0;
-                        for (int j = 0; j<i; j++) temp += Matrix[i, j] * matrixX[j];
-                        for (int j = i + 1; j<Size; j++) temp += Matrix[i, j] * LastIter[j];
-                        matrixX[i] = (Matrix[i, Size] - temp) / Matrix[i, i];
+                        for (int j = 0; j < i; j++) temp += main[i, j] * matrixX[j];
+                        for (int j = i + 1; j < Size; j++) temp += main[i, j] * LastIter[j];
+                        matrixX[i] = (left[i] - temp) / main[i, i];
                     }
-}
-                while (!Termination(matrixX, LastIter, accuracy));
-                for (int i = 0; i<Size; i++)
-                {
-                    dgv3.Rows[i].Cells[0].Value = Convert.ToString(Math.Round(matrixX[i], 3));
                 }
+                while (!Termination(matrixX, LastIter, accuracy));
             }
 
-        }*/
+            return matrixX;
+        }
+
+        private bool Convergence()
+        {
+
+            double[,] main = Main;
+            double[] left = Left;
+            for (int i = 0; i < Size; i++)
+            {
+                left[i] /= main[i, i];
+                for (int j = 0; j < Size; j++)
+                {
+                    if(i != j) main[i, j] /= -main[i, i];
+                }
+                main[i, i] = 0;
+            }
+            double sum = 0, m = 0, max = 0;
+            for (int i = 0; i < Size; i++)
+            {
+                m += Math.Abs(main[0, i]);
+            }
+            for (int i = 1; i < Size; i++)
+            {
+                for (int j = 0; j < Size; j++)
+                {
+                    sum += Math.Abs(main[i, j]);
+                }
+                max = Math.Max(m, sum);
+            }
+            return (max < 1);
+        }
+
+        public bool Termination(double[] xk, double[] xkk, double accuracy)
+        {
+            double norm = 0, norm2 = 0;
+            for (int i = 0; i < Size; i++) norm += (xk[i] - xkk[i]) * (xk[i] - xkk[i]);
+            for (int i = 0; i < Size; i++) norm2 += xk[i] * xk[i];
+            return (Math.Sqrt(norm) / Math.Sqrt(norm2) <= accuracy);
+        }
 
         private int Abs(int x){ return x >= 0 ? x : -x; }
+
         private double Determinant(double[,] matrix)
         {
             if (matrix.GetLength(0) != matrix.GetLength(1)) return double.NaN;
@@ -199,8 +248,6 @@ namespace Block_3
                 result += diag;
             }
 
-            
-
             for (int i = size; i >= 0; i--)
             {
                 diag = 1;
@@ -214,33 +261,5 @@ namespace Block_3
             return result;
         }
 
-        private bool Convergence()
-        {
-
-            double[,] main = Main;
-            double[] left = Left;
-            for (int i = 0; i < Size; i++)
-            {
-                left[i] /= main[i, i];
-                for (int j = 0; j < Size; j++)
-                {
-                    main[i, j] = (i != j) ? main[i, j] / -main[i, i] : 0;
-                }
-            }
-            double sum = 0, m = 0, max = 0;
-            for (int i = 0; i < Size; i++)
-            {
-                m += Math.Abs(main[0, i]);
-            }
-            for (int i = 1; i < Size; i++)
-            {
-                for (int j = 0; j < Size; j++)
-                {
-                    sum += Math.Abs(main[i, j]);
-                }
-                max = Math.Max(m, sum);
-            }
-            return (max < 1);
-        }
     }
 }
